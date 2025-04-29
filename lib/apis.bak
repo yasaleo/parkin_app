@@ -1,0 +1,55 @@
+user - register:
+api : /api/register/ (post)
+payload : {
+"username": "testuser",
+"email": "test@example.com",
+"password": "yourpassword123"
+}
+
+user - login:
+api : /api/login/ (post)
+payload : {
+"email": "test@example.com",
+"password": "yourpassword123"
+}
+(login would give back token for session)
+
+user - profile view
+headers: "key": "Authorization", "value": "Token <login token>"
+api : http://127.0.0.1:8000/api/profile/ (GET)
+
+Add Vehicle:
+headers: "key": "Authorization", "value": "Token <login token>"
+api: /api/vehicle/ (POST) payload: {
+"vehicle_type_id": 4,
+"license_plate": "KL07AB1234"
+}
+
+Allocate parking slot
+headers: "key": "Authorization", "value": "Token <login token>"
+api: http://127.0.0.1:8000/api/parking/allocate/ (POST)
+payload: {
+"vehicle_id": 1
+}
+
+Total Parking available
+api: /api/parking/availability/ (GET)
+
+
+python manage.py runserver 0.0.0.0:8000
+
+sudo systemctl status postgresql
+
+sudo systemctl start postgresql
+
+
+
+
+{"message":"User registered. OTP sent.","otp":"989768"}
+
+{"message":"Please complete payment to exit.","license_plate":"GTTG5566","entry_time":"2025-04-15T09:38:47.380896+00:00","exit_time":"2025-04-15T09:39:04.866310+00:00","duration_hours":1,"amount":20,"payment_status":"PENDING"}
+
+
+{token: 783a4445515ab0d856412e4757e7c417ef7b269f, user_id: 5, email: user1@gmail.com, current_user: user1@gmail.com}
+
+{message: User registered successfully., user_id: 5, email: user1@gmail.com}
