@@ -354,7 +354,7 @@ class _ParkingPaymentScreenState extends State<ParkingPaymentScreen> {
                           ),
                         ),
                         Text(
-                          'د.ك ${widget.payment.amount.toStringAsFixed(2)}',
+                          'AED${widget.payment.amount.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -374,7 +374,7 @@ class _ParkingPaymentScreenState extends State<ParkingPaymentScreen> {
                           ),
                         ),
                         Text(
-                          'د.ك ${widget.payment.amount.toStringAsFixed(2)}',
+                          'AED ${widget.payment.amount.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -408,7 +408,7 @@ class _ParkingPaymentScreenState extends State<ParkingPaymentScreen> {
                 label: Text(
                   _isProcessing
                       ? 'Processing...'
-                      : 'Pay Now - د.ك ${widget.payment.amount.toStringAsFixed(2)}',
+                      : 'Pay Now - AED ${widget.payment.amount.toStringAsFixed(2)}',
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

@@ -168,7 +168,7 @@ class _ActiveParkingScreenState extends State<ActiveParkingScreen> {
 
     // Format the cost to show in dinars
     final String formattedCost =
-        '${parking.cost} د.ع'; // د.ع is the symbol for Iraqi Dinar
+        '${parking.cost} AED'; 
 
     return Card(
       margin: const EdgeInsets.only(bottom: 16),

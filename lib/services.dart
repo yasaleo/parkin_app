@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:smart_parking/app_constants.dart';
 
 class ApiServices {
-  final String baseUrl = 'http://192.168.0.110:8000/';
+  final String baseUrl = "http://56.228.81.154:8000/";
+  // 'http://192.168.0.110:8000/';
 
   Future<Map> signUp({
     required String email,
@@ -26,6 +27,7 @@ class ApiServices {
     if (response.statusCode == 201) {
       return jsonDecode(response.body);
     } else {
+      print(response.body);
       throw Exception('Failed to sign up');
     }
   }
@@ -83,7 +85,7 @@ class ApiServices {
       'is_prebooked': preBooking,
     };
 
-    if (startTime != null  && startTime.isNotEmpty && preBooking) {
+    if (startTime != null && startTime.isNotEmpty && preBooking) {
       body['start_time'] = startTime;
     }
 
@@ -95,6 +97,8 @@ class ApiServices {
       },
       body: jsonEncode(body),
     );
+
+    print("response in booking slot");
 
     print(response.body);
 
@@ -109,10 +113,10 @@ class ApiServices {
     final url = Uri.parse('$baseUrl/api/parking/vehicle/');
 
     final Map vt = {
-      'car': 3,
-      'bike': 2,
-      'lorry': 5,
-      'van': 4,
+      'car': 8,
+      'bike': 7,
+      'lorry': 9,
+      'van': 10,
     };
 
     final response = await http.post(
@@ -126,6 +130,8 @@ class ApiServices {
         'license_plate': lisenceplate
       }),
     );
+
+    print("response in register vehicle");
 
     print(response.body);
 
